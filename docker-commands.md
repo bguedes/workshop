@@ -1,13 +1,15 @@
 ## Clear Docker Context
 
-```bash
 stop all containers :
+
+```bash
+docker container stop $(docker container ls -aq)
 ```
 
-docker container stop $(docker container ls -aq)
+remove them :
 
 ```bash
-remove them :
+docker container rm $(docker container ls -aq)
 ```
 
 ## Get Cassandra cluster topology
