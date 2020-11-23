@@ -1,3 +1,14 @@
+## Get Docker Context
+
+```bash
+docker ps
+
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                                                     NAMES
+902caca1fb09        cassandra:2.1.22    "docker-entrypoint.s…"   About an hour ago   Up About an hour    7000-7001/tcp, 7199/tcp, 9160/tcp, 0.0.0.0:9242->9042/tcp                 node3
+a8a905478b99        cassandra:2.1.22    "docker-entrypoint.s…"   About an hour ago   Up About an hour    7000-7001/tcp, 7199/tcp, 9160/tcp, 0.0.0.0:9142->9042/tcp                 node2
+ddb2fe34736c        cassandra:2.1.22    "docker-entrypoint.s…"   About an hour ago   Up About an hour    0.0.0.0:7199->7199/tcp, 7000-7001/tcp, 9160/tcp, 0.0.0.0:9042->9042/tcp   node1
+```
+
 ## Clear Docker Context
 
 stop all containers :
@@ -10,6 +21,23 @@ remove them :
 
 ```bash
 docker container rm $(docker container ls -aq)
+```
+
+## Get container information
+
+```bash
+docker inspect node1
+```
+NetworkSettings -> Networks -> IPAddress
+
+```bash
+docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress }}{{end}}' node1
+```
+
+To get all containers ip adresses
+
+```bash
+docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
 ```
 
 ## Get Cassandra cluster topology
