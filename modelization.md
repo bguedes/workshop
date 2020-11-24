@@ -149,9 +149,10 @@ nodetool getendpoints stockwatcher user dfdf8009-d6b4-11e2-992a-238715b9803d;
 
 ```
 
-The token -6329350173379368567 the Murmur3 hash result of user_iddfdf8009-d6b4-11e2-992:a-238715b9803d is managed by 2 replicas :
+The token -6329350173379368567 the Murmur3 hash result of user_id dfdf8009-d6b4-11e2-992:a-238715b9803d is managed by 2 replicas :
 
-172.31.0.2 (node1)
+172.31.0.2 (node1) 
+
 172.31.0.3 (node3)
 
 ```bash
@@ -274,6 +275,10 @@ drwxr-xr-x 16 cassandra cassandra 4096 Nov 23 21:59 ..
 #### User Table data structure
 
 We are going to use a deprecated cassandra client, it has been since Cassandra 2.2.x version.
+Also the SSTable structure has been enhanced in Cµ version 3.0, for more details you can read this blog from TLP :
+
+[Introduction To The Apache Cassandra 3.x Storage Engine](https://thelastpickle.com/blog/2016/03/04/introductiont-to-the-apache-cassandra-3-storage-engine.html) 
+
 But for understanding the underlying structure of data storage (SSTable), by experience, it has been very useful to use it to explain how things are stored.
 With Docker-Compose the Cassandra version 2.1.22 is used that's why,we are going to use the old-deleted cassandra-cli :
 
@@ -290,6 +295,23 @@ Type 'quit;' or 'exit;' to quit.
 
 [default@unknown] 
 
+```
+
+```bash
+[default@unknown] use stockwatcher;
+Authenticated to keyspace: stockwatcher
+[default@stockwatcher] get user[dfdf8009-d6b4-11e2-992a-238715b9803d];
+=> (name=, value=, timestamp=1606168798066782)
+=> (name=active, value=01, timestamp=1606168798066782)
+=> (name=display_name, value=54776f2d54696d6520537570657220426f776c2057696e6e6572, timestamp=1606168798066782)
+=> (name=email_address, value=7573657231304073746f636b776174636865722e6f7267, timestamp=1606168798066782)
+=> (name=first_name, value=456c69, timestamp=1606168798066782)
+=> (name=last_name, value=4d616e6e696e67, timestamp=1606168798066782)
+=> (name=postal_code, value=3037303733, timestamp=1606168798066782)
+=> (name=updated, value=00000175f71ee373, timestamp=1606168798066782)
+Returned 8 results.
+Elapsed time: 29 msec(s).
+[default@stockwatcher] 
 ```
 
 
