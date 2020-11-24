@@ -1,54 +1,28 @@
-version: '3'
-
+version: '2'
 services:
 
-  # ----------------------------------------
-  # OpsCenter
-  # ----------------------------------------
-  opscenter:
-    image: "datastax/dse-opscenter:6.8.0"
-    ports:
-      - 8888:8888
-    environment:
-      - DS_LICENSE=accept
-
   studio:
-    image: datastax/dse-studio:6.8.1
+    image: datastax/dse-studio:6.8.6
     environment:
       - DS_LICENSE=accept
     ports:
-      - "9091:9091"
-    depends_on:
-      - seed_node
-    container_name: "studio"
+      - 9091:9091
 
   seed_node:
-    image: datastax/dse-server:6.8.1
-    command: [ -s -k ]
+    image: datastax/dse-server:6.8.7
     environment:
       - DS_LICENSE=accept
-      - DC=DC1
-      - JVM_EXTRA_OPTS=-Xms1g -Xmx2g
-      - NUM_TOKENS=8
     # Allow DSE to lock memory with mlock
     cap_add:
     - IPC_LOCK
     ulimits:
       memlock: -1
-
+      
   node:
-    image: datastax/dse-server:6.8.1
-    command: [ -s -k ]
-  #  ports:
-  #  - "9042:9042"
-  #  - "8983:8983"
-  #  - "8182:8182"
+    image: datastax/dse-server:6.8.7
     environment:
       - DS_LICENSE=accept
       - SEEDS=seed_node
-      - DC=DC1
-      - JVM_EXTRA_OPTS=-Xms1g -Xmx2g
-      - NUM_TOKENS=8
     links:
       - seed_node
     # Allow DSE to lock memory with mlock
