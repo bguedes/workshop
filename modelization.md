@@ -886,7 +886,7 @@ INSERT INTO Trade (trade_timestamp, exchange_id, stock_symbol, share_price, shar
 
 INSERT INTO Trade (trade_timestamp, exchange_id, stock_symbol, share_price, share_quantity, trade_id, trade_date) VALUES ('2020-11-24 13:01:00', 'NYSE', 'WTI', 30.55, 80, 66fd08b4-2e7d-11eb-adc1-0242ac120002, '2020-11-24');
 INSERT INTO Trade (trade_timestamp, exchange_id, stock_symbol, share_price, share_quantity, trade_id, trade_date) VALUES ('2020-11-24 13:01:00', 'NYSE', 'QIHU', 24.99, 230, 66fd0972-2e7d-11eb-adc1-0242ac120002, '2020-11-24');
-INSERT INTO Trade (trade_timestamp, exchange_id, stock_symbol, share_price, share_quantity, trade_id, trade_date) VALUES ('2020-11-24 13:01:00', 'NYSE', 'CTL', '33.69', 100, 66fd0b5c-2e7d-11eb-adc1-0242ac120002, '2020-11-24');
+INSERT INTO Trade (trade_timestamp, exchange_id, stock_symbol, share_price, share_quantity, trade_id, trade_date) VALUES ('2020-11-24 13:01:00', 'NYSE', 'CTL', 33.69, 100, 66fd0b5c-2e7d-11eb-adc1-0242ac120002, '2020-11-24');
 INSERT INTO Trade (trade_timestamp, exchange_id, stock_symbol, share_price, share_quantity, trade_id, trade_date) VALUES ('2020-11-24 13:01:00', 'NASDAQ', 'AAPL', 200.325, 150, 66fd0c24-2e7d-11eb-adc1-0242ac120002, '2020-11-24');
 INSERT INTO Trade (trade_timestamp, exchange_id, stock_symbol, share_price, share_quantity, trade_id, trade_date) VALUES ('2020-11-24 13:01:00', 'NASDAQ', 'BRCD', 40.5, 100, 66fd0ce2-2e7d-11eb-adc1-0242ac120002, '2020-11-24');
 
