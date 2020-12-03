@@ -1,27 +1,34 @@
-version: '2'
+version: '3'
 services:
 
   studio:
     image: datastax/dse-studio:6.8.6
     environment:
       - DS_LICENSE=accept
+      - NUM_TOKENS=4
     ports:
       - 9091:9091
 
   seed_node:
     image: datastax/dse-server:6.8.7
+    command: [ -s -k ]
     environment:
       - DS_LICENSE=accept
+      - JVM_EXTRA_OPTS=-Xms1g -Xmx2g
+      - NUM_TOKENS=4
     # Allow DSE to lock memory with mlock
     cap_add:
     - IPC_LOCK
     ulimits:
       memlock: -1
-      
+
   node:
     image: datastax/dse-server:6.8.7
+    command: [ -s -k ]
     environment:
       - DS_LICENSE=accept
+      - JVM_EXTRA_OPTS=-Xms1g -Xmx2g
+      - NUM_TOKENS=4
       - SEEDS=seed_node
     links:
       - seed_node
