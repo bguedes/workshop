@@ -1,7 +1,7 @@
 ## Docker Initialisation
 
 ```bash
-docker-compose -f cassandra-docker-compose.yaml up -d
+docker-compose up -d --scale node=2
 ```
 
 Wait few seconds then check if the cluster is up :
