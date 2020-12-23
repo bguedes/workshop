@@ -28,10 +28,10 @@ docker cp cql node1:home/cql
 
 docker exec -it node1 bash
 
-cd  /home
+cd  /home/cql
 cqlsh
 
-source 'cql/stockwatcher.cql';
+source 'stockwatcher.cql';
 ```
 
 ## Single Partition Key
