@@ -10,7 +10,7 @@ services:
       - 9091:9091
 
   seed_node:
-    image: datastax/dse-server:6.8.7
+    image: datastax/dse-server:6.8.9
     command: [ -s -k ]
     environment:
       - DS_LICENSE=accept
@@ -23,7 +23,7 @@ services:
       memlock: -1
 
   node:
-    image: datastax/dse-server:6.8.7
+    image: datastax/dse-server:6.8.9
     command: [ -s -k ]
     environment:
       - DS_LICENSE=accept
