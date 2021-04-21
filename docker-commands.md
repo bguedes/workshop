@@ -8,12 +8,20 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 a8a905478b99        cassandra:2.1.22    "docker-entrypoint.s…"   About an hour ago   Up About an hour    7000-7001/tcp, 7199/tcp, 9160/tcp, 0.0.0.0:9142->9042/tcp                 node2
 ddb2fe34736c        cassandra:2.1.22    "docker-entrypoint.s…"   About an hour ago   Up About an hour    0.0.0.0:7199->7199/tcp, 7000-7001/tcp, 9160/tcp, 0.0.0.0:9042->9042/tcp   node1
 ```
+## Launching OSS Cassandra
+
+```bash
+sudo docker-compose -f cassandra-docker-compose.yml
+```
+
+## Launching DSE
+
 Launch cassandra instances:
 
 Launch the first node (seed one)
 
 ```bash
-sudo docker-compose -f cassandra-docker-compose.yml up -d --scale node=0
+sudo docker-compose -f up -d --scale node=0
 ```
 
 wait 3 minutes
@@ -21,13 +29,13 @@ wait 3 minutes
 Launch the second node
 
 ```bash
-sudo docker-compose -f cassandra-docker-compose.yml up -d --scale node=1
+sudo docker-compose -f up -d --scale node=1
 ```
 
 Launch the third node
 
 ```bash
-sudo docker-compose -f cassandra-docker-compose.yml up -d --scale node=1
+sudo docker-compose -f up -d --scale node=1
 ```
 
 Reproduce same steps if you mant more nodes, increasing the --scale node value
