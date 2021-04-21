@@ -11,7 +11,7 @@ ddb2fe34736c        cassandra:2.1.22    "docker-entrypoint.s…"   About an hour
 ## Launching OSS Cassandra
 
 ```bash
-sudo docker-compose -f cassandra-docker-compose.yaml up
+sudo docker-compose -f cassandra-docker-compose.yaml up &
 ```
 
 ## Launching DSE
