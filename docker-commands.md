@@ -74,7 +74,7 @@ docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAdd
 ## Get Cassandra cluster topology
 
 ```bash
-docker exec node1 nodetool status
+docker exec -it node1 nodetool status
 
 Datacenter: datacenter1
 =======================
