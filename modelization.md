@@ -24,11 +24,12 @@ UN  172.31.0.2  144.27 KB  8       77.1%             5164ff1c-29e5-4a3b-8882-585
 from project root :
 
 ```bash
-docker cp cql node1:home/cql
-
-docker exec -it node1 bash
 
 cd  /home/cql
+
+docker cp cql node1:home/cql
+docker exec -it node1 bash
+
 cqlsh
 
 source 'stockwatcher.cql';
