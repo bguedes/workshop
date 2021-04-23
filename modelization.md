@@ -25,10 +25,12 @@ from project root :
 
 ```bash
 
-cd  /home/cql
+cd  /cql
 
 docker cp cql node1:home/cql
 docker exec -it node1 bash
+
+cd  /home/cql
 
 cqlsh
 
