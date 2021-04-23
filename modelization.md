@@ -25,8 +25,6 @@ from project root :
 
 ```bash
 
-cd  /cql
-
 docker cp cql node1:home/cql
 docker exec -it node1 bash
 
